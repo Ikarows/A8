@@ -84,7 +84,11 @@ export default {
       })
     },
     toDetails (id) {
-      window.A8Show.goNews({ newsId: id })
+      if (!this.$isApp()) {
+        this.$alert('你未安装App，请先下载安装~')
+        return
+      }
+      window.A8Show.goNews(id)
     }
   }
 }

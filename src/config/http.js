@@ -99,6 +99,9 @@ axios.interceptors.response.use(
 
 // 路由拦截
 router.beforeEach((to, from, next) => {
+  if (to.query.isapp && to.query.isapp !== undefined) {
+    sessionStorage.isapp = true
+  }
   document.title = to.meta.title
   next()
 })

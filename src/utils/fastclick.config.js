@@ -1,5 +1,5 @@
 // 解决ios click 300ms延迟
-import ua from '@/utils/userAgent'
+import * as ua from '@/utils/userAgent'
 import fastclick from 'fastclick'
 fastclick.prototype.onTouchEnd = function (event) {
   if (event.target.hasAttribute('type') && event.target.getAttribute('type') === 'text') {

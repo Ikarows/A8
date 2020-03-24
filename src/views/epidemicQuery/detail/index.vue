@@ -92,7 +92,7 @@ export default {
       sportType: this.$route.query.sportType,
       shareConfig: {
         title: document.title,
-        imageUrl: '',
+        imageUrl: 'https://via.placeholder.com/50/09f/fff.png',
         content: '这是详情页的分享内容',
         shareUrl: document.location.href
       }

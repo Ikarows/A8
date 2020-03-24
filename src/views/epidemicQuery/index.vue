@@ -111,7 +111,7 @@ export default {
       upIcon: require('@/assets/img/up.png'),
       shareConfig: {
         title: document.title,
-        imageUrl: '',
+        imageUrl: 'https://via.placeholder.com/50/09f/fff.png',
         content: '这是新冠肺炎疫情实时查的分享内容',
         shareUrl: document.location.href
       } // 分享信息

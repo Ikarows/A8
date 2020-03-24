@@ -1,6 +1,6 @@
 <template>
   <div class="share">
-    <img src="@/assets/img/share_btn.png" class="share-btn" @click="show = true">
+    <img v-if="$isApp()" src="@/assets/img/share_btn.png" class="share-btn" @click="show = true">
     <van-action-sheet v-model="show" cancel-text="取消" title="分享至">
       <div class="content">
         <ul>
@@ -71,8 +71,13 @@ export default {
       //   shareUrl: '',
       //   shareScene: 0
       // }
-      this.shareConfig.type = type
-      window.A8Show.startShare(this.shareConfig)
+      window.A8Show.shareWithTitleImageUrlContentShareUrlType(
+        this.shareConfig.title,
+        this.shareConfig.imageUrl,
+        this.shareConfig.content,
+        this.shareConfig.shareUrl,
+        type
+      )
     }
   }
 }
