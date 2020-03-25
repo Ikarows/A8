@@ -94,7 +94,7 @@ export default {
       shareConfig: {
         title: '',
         imageUrl: '',
-        content: '这是详情页的分享内容',
+        content: '',
         shareUrl: document.location.href
       }
     }
