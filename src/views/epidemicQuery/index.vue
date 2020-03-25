@@ -2,7 +2,7 @@
   <div class="epidemic-query">
 
     <div class="header">
-      <h1 class="title">新冠肺炎疫情实时查</h1>
+      <!-- <h1 class="title">新冠肺炎疫情实时查</h1> -->
 
       <div class="total">
         <div class="tab">
@@ -110,9 +110,9 @@ export default {
       downIcon: require('@/assets/img/down.png'),
       upIcon: require('@/assets/img/up.png'),
       shareConfig: {
-        title: document.title,
-        imageUrl: 'https://via.placeholder.com/50/09f/fff.png',
-        content: '这是新冠肺炎疫情实时查的分享内容',
+        title: '',
+        imageUrl: '',
+        content: '',
         shareUrl: document.location.href
       } // 分享信息
     }
@@ -126,6 +126,9 @@ export default {
         if (res.code === 200) {
           this.countData = res.data.countData
           this.leagueCount = res.data.leagueCount
+          this.shareConfig.title = res.data.title
+          this.shareConfig.content = res.data.content
+          this.shareConfig.imageUrl = res.data.imageUrl
           for (const item of this.leagueCount) {
             item.childShow = false
           }
@@ -155,10 +158,11 @@ export default {
 <style lang="scss" scoped>
 .epidemic-query {
   .header {
-    height: 190px;
-    background: $blue url('~@/assets/img/index_bg.png') no-repeat;
-    background-size: 186px 66px;
-    background-position: 92% 28px;
+    height: 230px;
+    background: $blue url('~@/assets/img/epidemic_query_bg.jpg') no-repeat;
+    background-size: 100%;
+    //background-size: 186px 66px;
+    //background-position: 92% 28px;
     color: #FFF;
     position: relative;
     margin-bottom: 129px;
@@ -198,28 +202,56 @@ export default {
           color: #999;
           background: #EBEBEB;
           flex: 1;
+          position: relative;
 
           &.active {
-            background: #EBEBEB url('~@/assets/img/indexnav_2_on.png') no-repeat center top;
-            background-size: 100% 80%;
+            background: #FFF;
             color: $fontColor;
+
+            &::before {
+              content: '';
+              width: 30px;
+              height: 100%;
+              background: url('~@/assets/img/tab_left.png') no-repeat center top;
+              background-size: 100%;
+              display: inline-block;
+              position: absolute;
+              left: -1px;
+              top: 0;
+            }
+
+            &::after {
+              content: '';
+              width: 30px;
+              height: 100%;
+              background: url('~@/assets/img/tab_right.png') no-repeat center top;
+              background-size: 100%;
+              display: inline-block;
+              position: absolute;
+              right: -1px;
+              top: 0;
+            }
           }
 
           &:first-child {
 
             &.active {
-              background: #EBEBEB url('~@/assets/img/indexnav_1_on.png') no-repeat center top;
-              background-size: 100% 95%;
               color: $fontColor;
+
+              &::before {
+                display: none;
+              }
             }
           }
 
           &:last-child {
 
             &.active {
-              background: #EBEBEB url('~@/assets/img/indexnav_3_on.png') no-repeat center top;
-              background-size: 100% 95%;
               color: $fontColor;
+
+              &::after {
+                display: none;
+              }
             }
           }
         }

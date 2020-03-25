@@ -86,13 +86,14 @@ export default {
       active: 0,
       count: [],
       list: [],
+      info: '',
       // 数据截至时间
       dataTime: '',
       teamId: this.$route.query.teamId,
       sportType: this.$route.query.sportType,
       shareConfig: {
-        title: document.title,
-        imageUrl: 'https://via.placeholder.com/50/09f/fff.png',
+        title: '',
+        imageUrl: '',
         content: '这是详情页的分享内容',
         shareUrl: document.location.href
       }
@@ -109,9 +110,14 @@ export default {
       }
       team(params).then(res => {
         if (res.code === 200) {
+          this.info = res.data
           this.count = res.data.count
           this.list = res.data.list
           this.dataTime = res.time
+          this.shareConfig.title = res.data.title
+          this.shareConfig.content = res.data.content
+          this.shareConfig.imageUrl = res.data.imageUrl
+          document.title = res.data.teamName
         } else {
           this.$alert(res.msg)
         }
