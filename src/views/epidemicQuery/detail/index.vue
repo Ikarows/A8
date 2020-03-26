@@ -133,11 +133,12 @@ export default {
 <style lang="scss" scoped>
 .epidemic-query-detail {
   .header {
-    height: 120px;
-    background: $blue;
+    height: 215px;
     color: #FFF;
     position: relative;
     margin-bottom: 110px;
+    background: $blue url('~@/assets/img/epidemic_query_bg.jpg') no-repeat;
+    background-size: 100%;
 
     .total {
       height: 166px;
