@@ -87,6 +87,8 @@
     <newsList :sport-type="active" />
 
     <share :share-config="shareConfig" />
+
+    <appTips />
   </div>
 </template>
 

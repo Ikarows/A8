@@ -71,6 +71,7 @@ export default {
       //   shareUrl: '',
       //   shareScene: 0
       // }
+      this.show = false
       window.A8Show.shareWithTitleImageUrlContentShareUrlType(
         this.shareConfig.title,
         this.shareConfig.imageUrl,
