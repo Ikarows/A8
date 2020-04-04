@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$isApp()" class="app-tips">
+  <div v-if="!$isApp()" class="app-tips">
     <van-button class="btn" @click="goApp">APP内打开</van-button>
   </div>
 </template>
