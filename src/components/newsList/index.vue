@@ -12,7 +12,7 @@
           <van-steps direction="vertical" :active="-1">
             <van-step v-for="(item, index) in list" :key="index">
               <div class="step-data" @click="toDetails(item.newsId)">
-                <h3>{{ format(item.pubTime) }}</h3>
+                <h3>{{ $formatDate(item.pubTime, 'MM-dd hh:mm:ss') }}</h3>
                 <div class="box">
                   <p class="van-multi-ellipsis--l2">{{ item.title }}</p>
                   <small class="van-ellipsis">{{ item.summary }}</small>
@@ -49,13 +49,6 @@ export default {
       list: [],
       current: '',
       pageSize: 20
-    }
-  },
-  computed: {
-    format () {
-      return function (time) {
-        return `${this.$moment(time).format('MMM Do')} ${this.$moment(time).format('LT')}`
-      }
     }
   },
   methods: {

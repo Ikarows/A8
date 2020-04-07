@@ -11,6 +11,7 @@ import { isApp } from '@/utils/userAgent'
 import share from '@/components/share'
 import appTips from '@/components/appTips'
 import '@/assets/css/reset.scss'
+import formatDate from '@/utils/formatDate'
 import moment from 'moment'
 moment.locale('zh-cn')
 
@@ -35,6 +36,7 @@ if (process.env.VUE_APP_SECRET === 'test') {
 }
 
 Vue.prototype.$isApp = isApp
+Vue.prototype.$formatDate = formatDate
 Vue.config.productionTip = false
 
 new Vue({
